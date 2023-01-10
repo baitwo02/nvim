@@ -21,7 +21,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', 'gK', vim.lsp.buf.hover, bufopts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+    vim.keymap.set('n', '<C-S-k>', vim.lsp.buf.signature_help, bufopts)
     vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
     vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
     vim.keymap.set('n', '<leader>wl', function()
@@ -41,15 +41,13 @@ local lsp_flags = {
 
 -- 设置mason自动安装的lsp server
 local mason_lspconnfig_settings = {
-    ensure_installed = { "sumneko_lua" },
+    ensure_installed = { "sumneko_lua" ,"pyright", "clangd"},
     automatic_installation = true,
 }
 
-mason_lspconnfig.setup({
+mason_lspconnfig.setup(
     mason_lspconnfig_settings
-})
-
-
+)
 
 mason_lspconnfig.setup_handlers {
     -- 自动为没有设置 handler 的 lsp server 设置默认 handler

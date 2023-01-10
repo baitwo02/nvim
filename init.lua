@@ -5,4 +5,3 @@ require("user.colorscheme")
 require("user.conf")
 require("user.lsp")
 require("user.snippets")
-

@@ -44,9 +44,16 @@ local plugins = {
         "neovim/nvim-lspconfig", -- 让 neovim 支持 lsp 配置
         "williamboman/mason.nvim", -- 使用 mason 简单安装 lsp serveer
         "williamboman/mason-lspconfig.nvim", -- 简单配置 lsp
-        "jose-elias-alvarez/null-ls.nvim",
-        "mfussenegger/nvim-dap", -- nvim-dap 首页无配置, 稍后配置
+        "jose-elias-alvarez/null-ls.nvim", -- 格式化及语法检查
         lazy = false,
+    },
+    {
+        -- 代码调试
+        "mfussenegger/nvim-dap", -- nvim-dap 首页无配置, 稍后配置
+        "jayp0521/mason-nvim-dap.nvim", -- 是 dap 配置变简单
+        "rcarriga/nvim-dap-ui", -- dap ui 界面
+        lazy = true,
+        ft = { "c", "python", "rust", "go"}
     },
     {
         -- snippet 补全
