@@ -3,7 +3,7 @@ local mason = require("mason")
 -- 官方默认配置
 local mason_settings = {
     -- 配置安装目录
-    install_root_dir = vim.fn.stdpath("data") .. "mason",
+    install_root_dir = vim.fn.stdpath("data") .. "/mason",
 
     -- mason 将其 bin 文件放在你环境变量哪个位置:
     -- - "prepend" (default, 放在 PATH 开头)

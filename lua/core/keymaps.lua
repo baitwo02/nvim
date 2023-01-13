@@ -25,7 +25,7 @@ vim.g.maplocalleader = " "
 --   command_mode = "c",
 
 
----------- Normal ----------
+---------- Normal ---------
 -- 窗口导航
 keymap("n", "<c-h>", "<c-w>h", opts)
 keymap("n", "<c-j>", "<c-w>j", opts)
@@ -35,6 +35,11 @@ keymap("n", "<leader><c-h>", "<c-w>H", opts)
 keymap("n", "<leader><c-J>", "<c-w>J", opts)
 keymap("n", "<leader><c-K>", "<c-w>K", opts)
 keymap("n", "<leader><c-L>", "<c-w>L", opts)
+-- keymap("n", "<c-s-h>", "<c-w>H", opts)
+-- keymap("n", "<c-s-j>", "<c-w>J", opts)
+-- keymap("n", "<c-s-k>", "<c-w>K", opts)
+-- keymap("n", "<c-s-l>", "<c-w>L", opts)
+
 
 -- 分屏
 keymap("n", "sh", ":set nosplitright<cr>:vsplit<cr>", opts)
@@ -79,7 +84,10 @@ keymap("n", "<leader>p", "p", opts)
 keymap("n", "<leader>P", "P", opts)   -- 大写
 
 -- 快速更改单词
-keymap("n", "cw", "ciw", opts)   -- 大写
+keymap("n", "cw", "ciw", opts)
+keymap("n", "dw", "diw", opts)
+keymap("n", "yw", "yiw", opts)
+keymap("n", "pw", "viwp", opts)
 
 ---------- Visual ----------
 -- 移动光标
@@ -122,8 +130,8 @@ keymap("i", "kj", "<esc>", opts)
 -- 移动光标
 keymap("i", "<c-h>", "<esc>i",   opts)
 keymap("i", "<c-l>", "<esc>lli", opts)
-keymap("i", "<c-j>", "<esc>ji",  opts)
-keymap("i", "<c-k>", "<esc>ki",  opts)
+keymap("i", "<c-j>", "<esc>jli",  opts)
+keymap("i", "<c-k>", "<esc>kli",  opts)
 keymap("i", ";;", "<esc>la",  opts)
 
 ---------- Terminal ----------

@@ -5,9 +5,9 @@ local options = {
     swapfile = true, -- 允许创建交换文件
     undofile = true, -- 允许创建撤销文件
     autochdir = true,
-    backupdir = "/home/baitwo02/.config/nvim/tmp/backup", -- 备份文件路径
-    directory = "/home/baitwo02/.config/nvim/tmp/swap", -- 交换文件路径
-    undodir = "/home/baitwo02/.config/nvim/tmp/undo", -- 撤销文件路径
+    backupdir = vim.fn.stdpath("config") .. "/tmp/backup", -- 备份文件路径
+    directory = vim.fn.stdpath("config") .. "/tmp/swap", -- 交换文件路径
+    undodir = vim.fn.stdpath("config") .. "/tmp/undo", -- 撤销文件路径
     fileencoding = "utf-8", -- 文件使用 utf8 编码
     writebackup = false, -- 一个文件正在被编辑, 禁止写备份文件
 

@@ -1,8 +1,8 @@
 local lspconfig = require("lspconfig")
 local mason_lspconnfig = require("mason-lspconfig")
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local utils = require("user.utils")
-local lsp_server_config = vim.fn.stdpath('config') .. '/lua/user/lsp/settings'
+local utils = require("core.utils")
+local lsp_server_config = vim.fn.stdpath('config') .. '/lua/core/lsp/settings'
 
 local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
@@ -21,7 +21,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', 'gK', vim.lsp.buf.hover, bufopts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-    vim.keymap.set('n', '<C-S-k>', vim.lsp.buf.signature_help, bufopts)
+    -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
     vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
     vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
     vim.keymap.set('n', '<leader>wl', function()
@@ -35,13 +35,12 @@ local on_attach = function(client, bufnr)
 end
 
 local lsp_flags = {
-    -- This is the default in Nvim 0.7+
     debounce_text_changes = 150,
 }
 
 -- 设置mason自动安装的lsp server
 local mason_lspconnfig_settings = {
-    ensure_installed = { "sumneko_lua" ,"pyright", "clangd"},
+    ensure_installed = { "sumneko_lua", "pyright", "clangd" },
     automatic_installation = true,
 }
 
@@ -63,7 +62,7 @@ mason_lspconnfig.setup_handlers {
 for _, fname in pairs(vim.fn.readdir(lsp_server_config)) do
     if utils.ends_with(fname, ".lua") then
         local server_config_name = string.sub(fname, 1, #fname - #".lua")
-        local server_config_file = "user.lsp.settings." .. server_config_name
+        local server_config_file = "core.lsp.settings." .. server_config_name
         mason_lspconnfig.setup_handlers {
             [server_config_name] = function()
                 lspconfig[server_config_name].setup {
