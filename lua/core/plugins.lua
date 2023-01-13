@@ -23,13 +23,6 @@ local plugins = {
 		lazy = false,
 	},
 	{
-		-- 主题
-		"folke/tokyonight.nvim",
-		build = ":TSUpdate",
-		lazy = false,
-		priority = 1000,
-	},
-	{
 		-- 美化
 		"nvim-treesitter/nvim-treesitter", -- 语法高亮
 		"lukas-reineke/indent-blankline.nvim", -- 缩进
@@ -55,8 +48,8 @@ local plugins = {
 	},
 	{
 		-- 代码调试
-		"mfussenegger/nvim-dap", -- nvim-dap 首页无配置, 稍后配置
-		"jayp0521/mason-nvim-dap.nvim", -- 是 dap 配置变简单
+		"mfussenegger/nvim-dap", -- nvim-dap 支持调试功能
+		"jayp0521/mason-nvim-dap.nvim", -- 使 dap 配置变简单
 		"rcarriga/nvim-dap-ui", -- dap ui 界面
 		"theHamsta/nvim-dap-virtual-text", -- 虚拟文字, 能在 buffer 显示变量值
         "Weissle/persistent-breakpoints.nvim", -- 记录断点信息
@@ -70,5 +63,11 @@ local plugins = {
 		lazy = false,
 	},
 }
+
+local user_plugins = require("user.plugins")
+
+for _, v in pairs(user_plugins) do
+	plugins[#plugins+1]= v
+end
 
 lazy.setup(plugins)

@@ -7,17 +7,14 @@ local run_code = function ()
     if filetype == "c" then
         vim.cmd[[ set splitright ]]
         vim.cmd[[ vsplit ]]
-        vim.cmd[[ vertical resize -10 ]]
         vim.cmd[[ term gcc -g % -o %< && time ./%< ]]
     elseif filetype == "lua" then
         vim.cmd[[ set splitright ]]
         vim.cmd[[ vsplit ]]
-        vim.cmd[[ vertical resize -10 ]]
         vim.cmd[[ term time lua % ]]
     elseif filetype == "python" then
         vim.cmd[[ set splitright ]]
         vim.cmd[[ vsplit ]]
-        vim.cmd[[ vertical resize -10 ]]
         vim.cmd[[ term time python % ]]
     end
 end

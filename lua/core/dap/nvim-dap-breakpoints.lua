@@ -1,5 +1,5 @@
 require("persistent-breakpoints").setup({
-	-- save_dir = vim.fn.stdpath("data") .. "/nvim_checkpoints",
+	save_dir = vim.fn.stdpath("data") .. "/nvim_checkpoints",
 	load_breakpoints_event = { "BufReadPost" },
 	-- record the performance of different function. run :lua require('persistent-breakpoints.api').print_perf_data() to see the result.
 	perf_record = false,
