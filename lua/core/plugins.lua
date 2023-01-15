@@ -27,7 +27,15 @@ local plugins = {
 		"nvim-treesitter/nvim-treesitter", -- 语法高亮
 		"lukas-reineke/indent-blankline.nvim", -- 缩进
 		lazy = false,
+        priority = 1000,
 	},
+    {
+        -- tree
+        "nvim-tree/nvim-tree.lua", -- 文件树插件
+        "nvim-tree/nvim-web-devicons", -- 为文件树提供 icons
+        lazy = false,
+        priority = 999,
+    },
 	{
 		-- Cmp 补全
 		"hrsh7th/nvim-cmp",
