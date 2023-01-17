@@ -67,10 +67,10 @@ keymap("n", "<leader>h", "^", opts)
 keymap("n", "<leader>l", "$", opts)
 
 -- 复制粘贴
-keymap("n", "y", '"+y', opts) -- 小写 y 向后复制到 + 寄存器
-keymap("n", "Y", '"+Y', opts) -- 大写 Y 先前复制到 + 寄存器
-keymap("n", "p", '"+p', opts) -- 小写 p 从 + 寄存器向后粘贴
-keymap("n", "P", '"+P', opts) -- 大写 P 从 + 寄存器向前粘贴
+keymap("n", "y", "\"+y", opts) -- 小写 y 向后复制到 + 寄存器
+keymap("n", "Y", "\"+Y", opts) -- 大写 Y 先前复制到 + 寄存器
+keymap("n", "p", "\"+p", opts) -- 小写 p 从 + 寄存器向后粘贴
+keymap("n", "P", "\"+P", opts) -- 大写 P 从 + 寄存器向前粘贴
 keymap("n", "<leader>y", "y", opts) -- 小写 y 向后复制到 _ 寄存器
 keymap("n", "<leader>Y", "Y", opts) -- 大写 Y 先前复制到 _ 寄存器
 keymap("n", "<leader>p", "p", opts) -- 小写 p 从 _ 寄存器向后粘贴
@@ -79,8 +79,9 @@ keymap("n", "<leader>P", "P", opts) -- 大写 P 从 _ 寄存器向前粘贴
 -- 快速更改单词
 keymap("n", "cw", "ciw", opts)
 keymap("n", "dw", "diw", opts)
-keymap("n", "yw", "yiw", opts)
-keymap("n", "pw", "viwp", opts)
+keymap("n", "yw", "\"+yiw", opts)
+keymap("n", "pw", "viw\"+p", opts)
+keymap("n", "<leader>pw", "viwp", opts)
 
 ---------- Visual ----------
 -- 移动光标
