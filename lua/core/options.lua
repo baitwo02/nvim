@@ -27,8 +27,7 @@ local options = {
   tabstop = 4, -- 一个 tab 键插入空格数量
 
   -- 折叠
-  foldmethod = "indent", -- 使用 nvim_treesitter 折叠
-  -- foldexpr = "nvim_treesitter#foldexpr()",
+  foldmethod = "indent", -- 使用 indent 模式折叠
   foldenable = false, -- 当打开一个文件时不允许应用折叠
   foldlevel = 99, -- 不设置这个, 到处都会有折叠
 
