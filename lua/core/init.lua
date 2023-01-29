@@ -1,7 +1,0 @@
-require("core.options")
-require("core.keymaps")
-require("core.plugins")
-require("core.conf")
-require("core.lsp")
-require("core.dap")
-require("core.run-code")

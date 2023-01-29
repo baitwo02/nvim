@@ -1,6 +1,5 @@
 local opts = { noremap = true, silent = true }
 
--- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
 -- 取消一些按键的作用
@@ -15,15 +14,15 @@ keymap("", "<cr>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
+-- 模式:
+-- 普通模式 = "n",
+-- 插入模式 = "i",
+-- 选中模式 = "v",
+-- 区块选中 = "x",
+-- 终端模式 = "t",
+-- 命令模式 = "c",
 
----------- Normal ---------
+---------- 普通模式 ---------
 -- 窗口导航
 keymap("n", "<c-h>", "<c-w>h", opts) -- 聚焦到左边窗口
 keymap("n", "<c-j>", "<c-w>j", opts) -- 聚焦到下边窗口
@@ -79,11 +78,24 @@ keymap("n", "<leader>P", "P", opts) -- 大写 P 从 _ 寄存器向前粘贴
 -- 快速更改单词
 keymap("n", "cw", "ciw", opts)
 keymap("n", "dw", "diw", opts)
-keymap("n", "yw", "\"+yiw", opts)
-keymap("n", "pw", "viw\"+p", opts)
-keymap("n", "<leader>pw", "viwp", opts)
+keymap("n", "vw", "viw", opts)
+keymap("n", "yw", "viw", opts)
 
----------- Visual ----------
+
+---------- 插入模式 ----------
+-- 按 jk 键退出 insert 模式
+keymap("i", "jk", "<esc>", opts)
+keymap("i", "kj", "<esc>", opts)
+
+-- 移动光标
+keymap("i", "<c-h>", "<esc>i", opts)
+keymap("i", "<c-l>", "<esc>lli", opts)
+keymap("i", "<c-j>", "<esc>jli", opts)
+keymap("i", "<c-k>", "<esc>kli", opts)
+keymap("i", ";;", "<esc>la", opts)
+
+
+---------- 选中模式 ----------
 -- 移动光标
 keymap("v", "H", "7h", opts)
 keymap("v", "J", "5j", opts)
@@ -110,27 +122,17 @@ keymap("v", ">", ">gv", opts)
 keymap("v", "<a-j>", ":m .+1<cr>==", opts)
 keymap("v", "<a-k>", ":m .-2<cr>==", opts)
 
----------- visual block ----------
--- 上下移动文本
-keymap("x", "<a-j>", ":move '>+1<cr>gv-gv", opts)
-keymap("x", "<a-k>", ":move '<-2<cr>gv-gv", opts)
-
 -- 快速移动光标
 keymap("v", "<leader>h", "^", opts)
 keymap("v", "<leader>l", "$h", opts)
 
----------- Insert ----------
--- 按 jk 键退出 insert 模式
-keymap("i", "jk", "<esc>", opts)
-keymap("i", "kj", "<esc>", opts)
 
--- 移动光标
-keymap("i", "<c-h>", "<esc>i", opts)
-keymap("i", "<c-l>", "<esc>lli", opts)
-keymap("i", "<c-j>", "<esc>jli", opts)
-keymap("i", "<c-k>", "<esc>kli", opts)
-keymap("i", ";;", "<esc>la", opts)
+---------- 区块选中 ----------
+-- 上下移动文本
+keymap("x", "<a-j>", ":move '>+1<cr>gv-gv", opts)
+keymap("x", "<a-k>", ":move '<-2<cr>gv-gv", opts)
 
----------- Terminal ----------
+
+---------- 终端模式 ----------
 -- 按 esc 推出输入模式
 keymap("t", "<esc>", "<C-\\><C-N>", opts)

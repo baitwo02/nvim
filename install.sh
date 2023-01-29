@@ -1,1 +1,1 @@
-sudo pacman --noconfirm -S gzip unzip curl wget tar
+sudo pacman --noconfirm -S gzip unzip curl wget tar npm nodejs
