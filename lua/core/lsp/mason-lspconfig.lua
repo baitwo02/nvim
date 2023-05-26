@@ -40,7 +40,7 @@ local lsp_flags = {
 
 -- 设置mason自动安装的lsp server
 local mason_lspconnfig_settings = {
-  ensure_installed = { "sumneko_lua", "pyright", "clangd" },
+  ensure_installed = { "pyright", "clangd" },
   automatic_installation = true,
 }
 
